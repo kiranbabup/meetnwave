@@ -58,7 +58,7 @@ const FooterComponent = () => {
               className={classes.menuItem}
               component={!item.isDialog ? RouterLink : item.target ? "a" : "div"}
               {...(item.target && { href: item.link, target: "_blank" })}
-              sx={{ color: match(item.link) ? "secondary.main" : trigger ? "white" : "black" }}
+              sx={{ color: match(item.link) ? "secondary.main" : trigger ? mainColor : "black" }}
               to={item.link}
             >
               {item.title}

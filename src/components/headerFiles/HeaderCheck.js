@@ -41,6 +41,7 @@ function MainHeaderComponent(props) {
             <CssBaseline />
             <AppBar component="nav">
                 <Toolbar sx={{ backgroundColor: mainbgcolor,}}>
+                    
                     <Box sx={{ display: { xs: "flex", sm: "none" }, width: { xs: "100%" }, justifyContent: { xs: "space-between" } }}>
                         <Typography variant="h6" sx={{ my: 2, color:mainColor }} onClick={()=>navigate("/")}>
                         Meet'n'Wave
@@ -55,6 +56,7 @@ function MainHeaderComponent(props) {
                             <MenuIcon sx={{color:mainColor}}/>
                         </IconButton>
                     </Box>
+
                     <Typography
                         variant="h6"
                         component="div"

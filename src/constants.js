@@ -1,8 +1,4 @@
 export const items = [
-    // {
-    //   title: "About Us",
-    //   link: "/404",
-    // },
     {
       title: "Home",
       link: "/",
@@ -16,7 +12,9 @@ export const items = [
       link: "/404",
     }
   ];
-  
+export const mainbgcolor = "dodgerblue";
+export const mainColor = "white";
+
 export const adminItems = [
     {
       title: "List1",
@@ -27,8 +25,8 @@ export const adminItems = [
       link: "/",
     },
   ];
-export const mainbgcolor = "dodgerblue";
-export const mainColor = "white";
+
+
 
 
   export const phoneRegExp = /\b\d{10}\b/;

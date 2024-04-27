@@ -79,3 +79,12 @@ npm i @redux-devtools/extension
 npm i redux-thunk
 npm i firebase
 npm install @mui/styles --force
+npm install yup --force
+npm i @iconify/react
+
+### Use the below code for thunk
+
+declare const thunk: ThunkMiddleware<any, AnyAction, undefined> & {
+    withExtraArgument<ExtraThunkArg, State = any, BasicAction extends Action<any> = AnyAction>(extraArgument: ExtraThunkArg): ThunkMiddleware<State, BasicAction, ExtraThunkArg>;
+};
+export default thunk;

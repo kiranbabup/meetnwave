@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import HomeLayout from "./layouts/HomeLayout";
 import PageNotFound from "./layouts/PageNotFound";
 import ProtectedRoute from "./layouts/ProtectedRoute";
+import AdminLogin from "./layouts/AdminLogin";
 // import SidebarLayout from "./layouts/sidebar";
 // import Dashboard from "./pages/Dashboard";
 
@@ -11,7 +12,7 @@ const Router = () => {
             {/* <Route path="/" element={<Navigate to="/" replace />} /> */}
             <Route path="/" element={<HomeLayout />} />
             <Route path="/404" element={<PageNotFound />} />
-            {/* <Route path="/admin" element={<AdminLogin />} /> */}
+            <Route path="/admin" element={<AdminLogin />} />
 
             {/* <Route path="/admindashboard" element={<ProtectedRoute type="admin" />}> */}
                 {/* <Route path="" element={<SidebarLayout type="admin" />}>
