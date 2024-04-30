@@ -1,6 +1,6 @@
 import { Box, useScrollTrigger } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { items, mainColor, mainbgcolor } from "../../constants";
+import { items, logoName, mainColor, mainbgcolor } from "../../constants";
 import { NavLink as RouterLink, matchPath, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,9 +46,9 @@ const FooterComponent = () => {
   return (
     <Box sx={{ height: "40vh", backgroundColor: mainbgcolor, display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
       <Box py={1} >
-        <a href="/" title="Meet'n'Wave" style={{ textDecoration: "none", fontSize: "2rem", color: mainColor}}>
+        <a href="/" title={logoName} style={{ textDecoration: "none", fontSize: "2rem", color: mainColor}}>
           {/* <img className={classes.logoImage} src={trigger ? "/static/icons/logo.png" : "/static/icons/logo.png"} alt="logo" /> */}
-          Meet'n'Wave
+          {logoName}
         </a>
       </Box>
       <Box>

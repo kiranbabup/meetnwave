@@ -1,7 +1,7 @@
 import { Box, AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button } from '@mui/material';
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import { items, mainColor, mainbgcolor } from '../../constants';
+import { items, logoName, mainColor, mainbgcolor } from '../../constants';
 import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -18,9 +18,7 @@ function MainHeaderComponent(props) {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }} onClick={()=>navigate("/")}>
-            Meet'n'Wave
-            </Typography>
+            <Typography variant="h6" sx={{ my: 2 }} onClick={()=>navigate("/")}>{logoName}</Typography>
             <Divider />
             <List>
                 {navItems.map((item, index) => (
@@ -43,9 +41,7 @@ function MainHeaderComponent(props) {
                 <Toolbar sx={{ backgroundColor: mainbgcolor,}}>
                     
                     <Box sx={{ display: { xs: "flex", sm: "none" }, width: { xs: "100%" }, justifyContent: { xs: "space-between" } }}>
-                        <Typography variant="h6" sx={{ my: 2, color:mainColor }} onClick={()=>navigate("/")}>
-                        Meet'n'Wave
-                        </Typography>
+                        <Typography variant="h6" sx={{ my: 2, color:mainColor }} onClick={()=>navigate("/")}>{logoName}</Typography>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -62,9 +58,7 @@ function MainHeaderComponent(props) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, color:mainColor }}
                         onClick={()=>navigate("/")}
-                    >
-                        Meet'n'Wave
-                    </Typography>
+                    >{logoName}</Typography>
 
                     <Box sx={{ display: { xs: 'none', sm: 'block' }, mr:2 }}>
                         {navItems.map((item,index) => (

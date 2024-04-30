@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Box, Button, Card, IconButton, InputAdornment, Stack } from "@mui/material";
 import Iconify from "../components/shortComponents/Iconify";
-import { phoneRegExp } from "../constants";
+import { logoName, phoneRegExp } from "../constants";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup.js";
 import { useForm } from "react-hook-form";
 import FormProvider from "../components/shortComponents/FormProvider"
@@ -18,28 +18,6 @@ const AdminLogin = ({ showAlert, authSuccess }) => {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setLoading] = useState(false);
-
-    // const fetchData = async () => {
-    //     const q = query(collection(db, "users"),where("phone_number", "==", 8374409756),where("password", "==", "1431141"));
-    //     try {
-    //       const querySnapshot = await getDocs(q);
-    //       console.log("Query Snapshot:", querySnapshot);
-
-    //       if (!querySnapshot.empty) {
-    //         const userData = querySnapshot.docs[0].data();
-    //         console.log("User Data:", userData);
-    //         // Now you have the user data, you can proceed accordingly
-    //       } else {
-    //         console.log("No user found with provided credentials.");
-    //       }
-    //     } catch (error) {
-    //       console.error("Error fetching user data:", error);
-    //     }
-    //   };
-
-    // useEffect(() => {
-    //     fetchData();
-    //   }, []);
 
     const LoginSchema = Yup.object().shape({
         phone_number: Yup.string().matches(phoneRegExp, "Phone number must be a valid").required("Phone number is required"),
@@ -75,8 +53,8 @@ const AdminLogin = ({ showAlert, authSuccess }) => {
                 var data = querySnapshot.docs[0].data();
                 console.log(data);
                 authSuccess({ body: data, type: data.type });
-                // navigate(`/${data.type}/dashboard`, { replace: true });
-                navigate("/")
+                navigate(`/${data.type}/mnwdashboard`, { replace: true });
+                // navigate("/")
             } else {
                 showAlert({ text: "Invalid credientials" });
             }
@@ -92,7 +70,7 @@ const AdminLogin = ({ showAlert, authSuccess }) => {
             <Card variant="outlined" sx={{ width: { xs: "340px", sm: "30%" }, p: 2, display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <Box
                     component="img"
-                    alt="Meet'n'Wave"
+                    alt={logoName}
                     src=""
                     sx={{ height: "10%" }}
                 />

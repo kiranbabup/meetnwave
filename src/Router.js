@@ -3,8 +3,11 @@ import HomeLayout from "./layouts/HomeLayout";
 import PageNotFound from "./layouts/PageNotFound";
 import ProtectedRoute from "./layouts/ProtectedRoute";
 import AdminLogin from "./layouts/AdminLogin";
-// import SidebarLayout from "./layouts/sidebar";
-// import Dashboard from "./pages/Dashboard";
+import AdminSidebarLayout from "./layouts/adminLayout/indexAdmin";
+import AdminDashboard from "./pages/adminPages/AdminDashboard";
+import UsersListPage from "./pages/adminPages/UsersListPage";
+import EventsListPage from "./pages/adminPages/EventsListPage";
+import ProfilePage from "./pages/adminPages/ProfilePage";
 
 const Router = () => {
     return (
@@ -12,13 +15,17 @@ const Router = () => {
             {/* <Route path="/" element={<Navigate to="/" replace />} /> */}
             <Route path="/" element={<HomeLayout />} />
             <Route path="/404" element={<PageNotFound />} />
-            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/adminmnwlogin" element={<AdminLogin />} />
 
-            {/* <Route path="/admindashboard" element={<ProtectedRoute type="admin" />}> */}
-                {/* <Route path="" element={<SidebarLayout type="admin" />}>
-                    <Route path="dashboard" element={<Dashboard />} />
-                </Route> */}
-            {/* </Route> */}
+            <Route path="/admin" element={<ProtectedRoute type="admin" />}>
+                <Route path="" element={<AdminSidebarLayout type="admin" />}>
+                    <Route path="mnwdashboard" element={<AdminDashboard />} />
+                    <Route path="mnwuserslist" element={<UsersListPage />} />
+                    <Route path="mnweventslist" element={<EventsListPage />} />
+                    <Route path="mnwadminprofile" element={<ProfilePage />} />
+                    
+                </Route>
+            </Route>
 
       
     {/* <Route path="employees" element={<Employees />} />

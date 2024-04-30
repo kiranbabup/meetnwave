@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from "react-redux";
 import store from "./store";
@@ -13,7 +13,9 @@ root.render(
   <HelmetProvider>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        {/* <HashRouter> */}
+          <App />
+        {/* </HashRouter> */}
       </BrowserRouter>
     </Provider>
   </HelmetProvider>
