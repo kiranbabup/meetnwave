@@ -37,9 +37,7 @@ export default function PageNotFound() {
             sx={{ height: 300, mx: "auto", my: 1 }}
           />
 
-          <Button size="large" variant="contained" onClick={handleBack}>
-            Go back
-          </Button>
+          {/* <Button size="large" variant="contained" onClick={handleBack}>Go back</Button> */}
         </ContentStyle>
       </Container>
     </Page>

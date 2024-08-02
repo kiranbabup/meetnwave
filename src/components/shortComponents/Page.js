@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 const Page = forwardRef(({ children, title = "", meta, sx, py = 8, ...other }, ref) => (
   <>
     <Helmet>
-      <title>{`${title} | meetnwave`}</title>
+      <title>{`${title} | MeetMe`}</title>
       {meta}
     </Helmet>
 

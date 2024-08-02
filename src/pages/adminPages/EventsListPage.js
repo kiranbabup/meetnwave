@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
 import { connect } from 'react-redux';
-import { Item } from "../../constants";
+import { PaperItem, blackColor } from "../../constants";
 import CustomPaginationActionsTable from "../../components/shortComponents/CustomPaginationActionsTable";
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../services/firebase";
@@ -44,18 +44,18 @@ const EventsListPage = ({ eventsCount }) => {
         event.event_name,
         event.event_category,
         event.event_date,
-        event.event_added_ids.length,
+        event.event_joined_ids.length,
         event.likes.length,
         event.isEvent_ended,
     )));
 
     return (
         <Box>
-            <Item elevation={3}>
-                <Typography sx={{ color: "black" }}>
+            <PaperItem elevation={3}>
+                <Typography sx={{ color: blackColor }}>
                     No of Events : {eventsCount}
                 </Typography>
-            </Item>
+            </PaperItem>
             <Box p={1} />
             <CustomPaginationActionsTable columns={columns} rows={rows} />
         </Box>

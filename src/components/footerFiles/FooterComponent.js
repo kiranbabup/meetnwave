@@ -1,6 +1,6 @@
 import { Box, useScrollTrigger } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { items, logoName, mainColor, mainbgcolor } from "../../constants";
+import { items, logoName, whiteColor, blackColor } from "../../constants";
 import { NavLink as RouterLink, matchPath, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,9 +44,9 @@ const FooterComponent = () => {
   const match = (path) => (path ? !!matchPath(`${pathname}${hash}`, path) : false);
 
   return (
-    <Box sx={{ height: "40vh", backgroundColor: mainbgcolor, display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
+    <Box sx={{ height: "40vh", backgroundColor: "#3b3837", display: "flex", alignItems: "center", justifyContent: "space-evenly" }}>
       <Box py={1} >
-        <a href="/" title={logoName} style={{ textDecoration: "none", fontSize: "2rem", color: mainColor}}>
+        <a href="/" title={logoName} style={{ textDecoration: "none", fontSize: "2rem", color: whiteColor}}>
           {/* <img className={classes.logoImage} src={trigger ? "/static/icons/logo.png" : "/static/icons/logo.png"} alt="logo" /> */}
           {logoName}
         </a>
@@ -58,7 +58,7 @@ const FooterComponent = () => {
               className={classes.menuItem}
               component={!item.isDialog ? RouterLink : item.target ? "a" : "div"}
               {...(item.target && { href: item.link, target: "_blank" })}
-              sx={{ color: match(item.link) ? "secondary.main" : trigger ? mainColor : "black" }}
+              sx={{ color: match(item.link) ? "secondary.main" : trigger ? whiteColor : blackColor }}
               to={item.link}
             >
               {item.title}

@@ -1,0 +1,41 @@
+.shadow,
+.event-page .card-event .card-event-image img {
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+}
+.event-page .card-event {
+    margin-top: -380px;
+  }
+  .event-page .card-event .card-event-stats {
+    padding: 1rem 0;
+  }
+  .event-page .card-event .card-event-stats > div {
+    text-align: center;
+    margin-right: 1rem;
+    padding: 0.875rem;
+  }
+  .event-page .card-event .card-event-stats > div:last-child {
+    margin-right: 0;
+  }
+  .event-page .card-event .card-event-stats > div .heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block;
+  }
+  .event-page .card-event .card-event-stats > div .description {
+    font-size: 0.875rem;
+    color: #adb5bd;
+  }
+  .event-page .card-event .card-event-actions {
+    padding: 0.875rem;
+  }
+  @media (max-width: 575.98px) {
+    .event-page .card-event .card-event-actions {
+      margin-top: 110px;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .event-page .card-event .card-event-stats {
+      margin-top: 30px;
+    }
+  }
+  

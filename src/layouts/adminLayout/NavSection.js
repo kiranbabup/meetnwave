@@ -1,11 +1,9 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import { NavLink as RouterLink, matchPath, useLocation } from "react-router-dom";
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { makeStyles } from "@mui/styles";
-import { Box, List, Collapse, ListItemText, ListItemIcon, ListItemButton, ListItem } from "@mui/material";
-// import Iconify from "../../components/shortComponents/Iconify";
-import { mainColor, mainbgcolor } from "../../constants";
+import { Box, List, ListItemText, ListItemIcon, ListItemButton, ListItem } from "@mui/material";
+import { whiteColor, dodgerBlueColor } from "../../constants";
 
 export const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
   ...theme.typography.body2,
@@ -50,12 +48,7 @@ export const useStyles = makeStyles((theme) => ({
     color: "white",
     fontWeight: "bold",
     backgroundColor: "blue",
-    // backgroundColor: alpha(theme.palette.text.subtitle, theme.palette.action.selectedOpacity),
   },
-  // activeSubStyle: {
-  //   color: "white",
-  //   fontWeight: "bold",
-  // },
 }));
 
 function NavItem({ item, active }) {
@@ -63,66 +56,12 @@ function NavItem({ item, active }) {
 
   const isActiveRoot = active(item.path);
 
-  const { title, path, icon, info, children } = item;
-
-  const [open, setOpen] = useState(isActiveRoot);
-
-  const handleOpen = () => {
-    setOpen((prev) => !prev);
-  };
-
-  // if (children) {
-  //   return (
-  //     <>
-  //       <ListItemStyle className={isActiveRoot ? classes.activeRootStyle : null} onClick={handleOpen}>
-  //         <ListItemIconStyle>{icon && icon}</ListItemIconStyle>
-  //         <ListItemText disableTypography primary={title} />
-  //         {info && info}
-  //         <Iconify icon={open ? "eva:arrow-ios-downward-fill" : "eva:arrow-ios-forward-fill"} sx={{ width: 16, height: 16, mx: 2 }} />
-  //       </ListItemStyle>
-
-  //       <Collapse in={open} timeout="auto" unmountOnExit>
-  //         <List component="div" disablePadding>
-  //           {children.map((item) => {
-  //             const { title, path } = item;
-  //             const isActiveSub = active(path);
-
-  //             return (
-  //               <ListItemStyle key={title} className={isActiveRoot ? classes.activeSubStyle : null} component={RouterLink} to={path}>
-  //                 <ListItemIconStyle>
-  //                   <Box
-  //                     component="span"
-  //                     sx={{
-  //                       width: 4,
-  //                       height: 4,
-  //                       display: "flex",
-  //                       borderRadius: "50%",
-  //                       alignItems: "center",
-  //                       justifyContent: "center",
-  //                       bgcolor: "text.disabled",
-  //                       transition: (theme) => theme.transitions.create("transform"),
-  //                       ...(isActiveSub && {
-  //                         transform: "scale(2)",
-  //                         bgcolor: "primary.main",
-  //                       }),
-  //                     }}
-  //                   />
-  //                 </ListItemIconStyle>
-
-  //                 <ListItemText disableTypography primary={title} />
-  //               </ListItemStyle>
-  //             );
-  //           })}
-  //         </List>
-  //       </Collapse>
-  //     </>
-  //   );
-  // }
+  const { title, path, icon, info } = item;
 
   return (
     <ListItemStyle className={isActiveRoot ? classes.activeRootStyle : null} component={RouterLink} to={path}
       sx={{
-        backgroundColor: mainbgcolor, color: mainColor,
+        backgroundColor: dodgerBlueColor, color: whiteColor,
         '&:hover': {
           backgroundColor: 'blue',
         },
@@ -146,9 +85,9 @@ export default function NavSection({ navConfig, ...other }) {
   return (
     <Box {...other}>
       <List disablePadding sx={{ p: 1 }}>
-        {navConfig.map((item) => (
+        {navConfig.map((item, index) => (
           <Box sx={{ mb: 1 }}>
-            <NavItem key={item.title} item={item} active={match} />
+            <NavItem key={index} item={item} active={match} />
           </Box>
         ))}
       </List>

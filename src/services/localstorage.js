@@ -1,5 +1,5 @@
 const days = 1;
-const storageKey = "meetnwave";
+const storageKey = "meetme";
 
 class LsService {
   ls = window.localStorage;

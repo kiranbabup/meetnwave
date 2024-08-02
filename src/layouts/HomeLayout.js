@@ -1,19 +1,23 @@
 import { Box } from "@mui/material";
 import FooterComponent from "../components/footerFiles/FooterComponent";
 import MainHeaderComponent from "../components/headerFiles/HeaderCheck";
-import { mainbgcolor } from "../constants";
+import SectionTwo from "../components/homeComponents/SectionTwo";
+import SectionThree from "../components/homeComponents/SectionThree";
 
 const HomeLayout = () => {
-    return(
-        <Box sx={{backgroundColor: mainbgcolor}}>
-            <MainHeaderComponent/>
+    return (
+        <Box>
+            <MainHeaderComponent />
+            <Box sx={{height: {xs:"72px", sm:"64px"}, backgroundColor:"blue"}} />
             <Box
                 component="img"
                 alt="Starting image"
                 src="/static/images/pg1.jpg"
-                sx={{width:"100%", height:"100vh"}}
+                sx={{ width: "100%", height: {xs:"35vh", sm:"94vh"} }}
             />
-            <FooterComponent/>
+            <SectionTwo />
+            <SectionThree />
+            <FooterComponent />
         </Box>
     )
 }

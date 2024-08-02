@@ -1,9 +1,7 @@
 import { alpha, styled } from "@mui/material/styles";
 import { Box, Stack, AppBar, Toolbar, IconButton, Typography } from "@mui/material";
 import AdminAccountPopover from "./AdminAccountPopover";
-// import { useNavigate } from "react-router-dom";
-// import { useAlertContext } from "../../components/AlertProvider";
-import { APP_BAR_DESKTOP, APP_BAR_MOBILE, DRAWER_WIDTH, logoName, mainColor, mainbgcolor } from "../../constants";
+import { APP_BAR_DESKTOP, APP_BAR_MOBILE, DRAWER_WIDTH, whiteColor, dodgerBlueColor } from "../../constants";
 import Iconify from "../../components/shortComponents/Iconify";
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
@@ -26,30 +24,15 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function AdminDashboardNavbar({ account, onOpenSidebar }) {
-  // const { showAlertDialog } = useAlertContext();
-  // const navigate = useNavigate();
-
-  // const [title, setTitle] = useState(document.title);
-
-  // useEffect(() => {
-  //   const observer = new MutationObserver(() => {
-  //     const title = document.title.split("|")[0];
-  //     setTitle(title);
-  //   });
-
-  //   observer.observe(document.querySelector("title"), { childList: true });
-
-  //   return () => observer.disconnect();
-  // }, []);
 
   return (
     <RootStyle elevation={5}>
-      <ToolbarStyle sx={{ backgroundColor:mainbgcolor}}>
+      <ToolbarStyle sx={{ backgroundColor:dodgerBlueColor}}>
         <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: "text.primary", display: { lg: "none" } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
 
-        <Typography variant="subtitle2" fontWeight={500} sx={{color:mainColor}}>
+        <Typography variant="subtitle2" fontWeight={500} sx={{color:whiteColor}}>
           Admin Pannel
         </Typography>
 

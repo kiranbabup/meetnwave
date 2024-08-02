@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
 import { connect } from 'react-redux';
-import { Item } from "../../constants";
+import { PaperItem, blackColor } from "../../constants";
 import CustomPaginationActionsTable from "../../components/shortComponents/CustomPaginationActionsTable";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../services/firebase";
@@ -10,7 +10,7 @@ const UsersListPage = ({ userCount }) => {
     const [usersListData, setUsersListData] = useState([]);
 
     const fetchUsersData = async () => {
-        const uList = query(collection(db, "users"), where("user_name", "!=", "Admin"));
+        const uList = query(collection(db, "users"), where("user_id", "!=", "Admin"));
         try {
             const querySnapshot = await getDocs(uList);
             const usersList = querySnapshot.docs.map(doc => doc.data());
@@ -26,26 +26,26 @@ const UsersListPage = ({ userCount }) => {
     }, []);
     console.log("Users List Data:", usersListData);
 
-    function createData(a, b, c, d, e, f) {
-        return { a, b, c, d, e, f};
+    function createData(a, b, c, d, f) {
+        return { a, b, c, d, f};
       }
       const columns = [
         { id: 'a', label: 'S.No' },
         { id: 'b', label: 'User Name' },
         { id: 'c', label: 'Phone No' },
         { id: 'd', label: 'EMail' },
-        { id: 'e', label: 'No.of Contacts', align:'center' },
+        // { id: 'e', label: 'No.of Contacts', align:'center' },
         { id: 'f', label: 'Ac Status' },
     ];
-      const rows = usersListData.map((user, index) => (createData(index+1, user.user_name, user.phone_number, user.email, user.contacts.length, user.account_status)));
-
+      const rows = usersListData.map((user, index) => (createData(index+1, user.name, user.phone_number, user.email, user.account_status)));
+    //   user.contacts.length,
     return (
         <Box>
-            <Item elevation={3}>
-                <Typography sx={{ color: "black" }}>
+            <PaperItem elevation={3}>
+                <Typography sx={{ color: blackColor }}>
                     No of Users : {userCount}
                 </Typography>
-            </Item>
+            </PaperItem>
             <Box p={1} />
             <CustomPaginationActionsTable columns={columns} rows={rows} />
         </Box>

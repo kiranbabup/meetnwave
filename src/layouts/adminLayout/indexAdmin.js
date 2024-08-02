@@ -32,7 +32,7 @@ const AdminSidebarLayout = ({ account, setUserCount, setEventsCount }) => {
   const [open, setOpen] = useState(false);
 
   const fetchUserCount = async () => {
-    const q = query(collection(db, "users"), where("user_name", "!=", "Admin"));
+    const q = query(collection(db, "users"), where("user_id", "!=", "Admin"));
     const e = query(collection(db, "events"));
     try {
       const querySnapshot = await getDocs(q);

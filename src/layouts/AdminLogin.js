@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Box, Button, Card, IconButton, InputAdornment, Stack } from "@mui/material";
 import Iconify from "../components/shortComponents/Iconify";
-import { logoName, phoneRegExp } from "../constants";
+import { logoName, phnValid, phnoReq, phoneRegExp, pwdLen, pwdReq, pwdValid } from "../constants";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup.js";
 import { useForm } from "react-hook-form";
 import FormProvider from "../components/shortComponents/FormProvider"
@@ -20,8 +20,8 @@ const AdminLogin = ({ showAlert, authSuccess }) => {
     const [isLoading, setLoading] = useState(false);
 
     const LoginSchema = Yup.object().shape({
-        phone_number: Yup.string().matches(phoneRegExp, "Phone number must be a valid").required("Phone number is required"),
-        password: Yup.string().min(6, "Password must be atleast 6 characters").required("Password is required"),
+        phone_number: Yup.string().matches(phoneRegExp, phnValid).required(phnoReq),
+        password: Yup.string().min(pwdLen, pwdValid).required(pwdReq),
     });
 
     const defaultValues = {
